@@ -2,15 +2,6 @@
 #include "MLX42/MLX42.h"
 #include <stdio.h>
 
-#define WIDTH 1000
-#define HEIGHT 1000
-
-typedef struct point_s
-{
-    int x;
-    int y;  
-} point_t;
-
 void	*ft_memset(void *b, int c, size_t len)
 {
 	size_t	i;
@@ -22,22 +13,6 @@ void	*ft_memset(void *b, int c, size_t len)
 		i++;
 	}
 	return (b);
-}
-
-void ft_drawline(mlx_image_t *img, point_t p1, point_t p2)
-{
-    //if either x is the same or y is the same draw a straight line
-
-    //else draw a queer line
-}
-
-void ft_draw(mlx_image_t *img)
-{
-    point_t p1 = {5, 500};
-    point_t p2 = {500, 500};
-    ft_drawline (img);
-    mlx_put_pixel (img, p1.x, p1.y, 0xFFFFFFFF);
-    mlx_put_pixel (img, p2.x, p2.y, 0xFFFFFFFF);
 }
 
 int ft_init()
