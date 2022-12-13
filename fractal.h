@@ -10,10 +10,13 @@
 
 typedef struct point_s
 {
-	double x;
-	double y;
-	double Cx;
-	double Cy;
+	double	x;
+	double	y;
+	double	Cx;
+	double	Cy;
+	double	col;
+	double	row;
+	int		radius;
 } point_t;
 
 void ft_draw(mlx_image_t *img);

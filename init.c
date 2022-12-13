@@ -27,7 +27,7 @@ int ft_init()
     if (!img)
         return (1);
     mlx_image_to_window(mlx, img, 0, 0);
-    ft_memset(img->pixels, 50, img->width * img->height * 4);
+    //ft_memset(img->pixels, 0x00000000, img->width * img->height * 4);
     ft_draw(img);
     mlx_loop(mlx);
     mlx_terminate(mlx);
