@@ -16,11 +16,11 @@ typedef struct point_s
 	double	Cy;
 	double	col;
 	double	row;
-	int		radius;
+	double	radius;
 } point_t;
 
 void ft_draw(mlx_image_t *img);
-
-
+int ft_torgbt(int r, int g, int b, int t);
+void ft_colorme(point_t p, mlx_image_t *img, int n, int maxiter);
 
 #endif
