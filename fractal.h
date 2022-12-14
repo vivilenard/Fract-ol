@@ -3,6 +3,7 @@
 
 #include "MLX42/MLX42.h"
 #include "stdio.h"
+#include "stdlib.h"
 
 #define WIDTH 1000
 #define HEIGHT 1000
@@ -19,7 +20,7 @@ typedef struct point_s
 	double	radius;
 } point_t;
 
-void ft_draw(mlx_image_t *img);
+void ft_draw(mlx_image_t *img, point_t p);
 int ft_torgbt(int r, int g, int b, int t);
 void ft_colorme(point_t p, mlx_image_t *img, int n, int maxiter);
 

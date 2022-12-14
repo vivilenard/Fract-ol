@@ -15,17 +15,20 @@ void	*ft_memset(void *b, int c, size_t len)
 	return (b);
 }
 
-point_t scroll(double xdelta, double ydelta, point_t *p)
+void ft_initializedata(point_t *p)
 {
+	p->radius = 2;
+}
+
+void my_scrollhook(double xdelta, double ydelta, void* param)
+{
+	point_t *p;
+	p = (point_t *)param;
+	xdelta = 5;
 	if (ydelta > 0)
-	{
-		ft_zoom()
-	}
+		p->radius = p->radius * 0.8;
 	else if (ydelta < 0)
 		puts("Down!");
-	(void)param;
-	xdelta = 5;
-	return (p);
 }
 
 int ft_init()
@@ -33,7 +36,7 @@ int ft_init()
     mlx_t *mlx;
     mlx_image_t *img;
 	point_t *p;
-
+	p = malloc(sizeof(point_t));
     mlx = mlx_init(WIDTH, HEIGHT, "fractals", true);
     if (!mlx)
         return (1);
@@ -42,8 +45,9 @@ int ft_init()
         return (1);
     mlx_image_to_window(mlx, img, 0, 0);
     //ft_memset(img->pixels, 0x00000000, img->width * img->height * 4);
-	p = mlx_scroll_hook(mlx, &scroll, p);
-    ft_draw(img);
+	ft_initializedata(p);
+    ft_draw(img, *p);
+	mlx_scroll_hook(mlx, &my_scrollhook, p);
     mlx_loop(mlx);
     mlx_terminate(mlx);
     return (0);

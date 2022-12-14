@@ -3,7 +3,6 @@
 
 point_t ft_pixeltocoordinate(point_t p)
 {
-	p.radius = 2;
 		//printf("WIDTH:%d, p.col: %f, p.row: %f, radius: %d\n", WIDTH, p.col, p.row, radius);
 	p.x = (p.col/WIDTH) * (2 * p.radius) - p.radius;
 	p.y = p.radius - (p.row/HEIGHT) * (2 * p.radius);
@@ -29,9 +28,8 @@ int ft_mandelbrot(point_t p, int maxiter, mlx_image_t *img)
 	ft_colorme(p, img, n, maxiter);
 	return (n);
 }
-void ft_draw(mlx_image_t *img)
+void ft_draw(mlx_image_t *img, point_t p)
 {
-	point_t p;
 	int		maxiter;
 
 	p.row = 0;
