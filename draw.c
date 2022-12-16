@@ -4,8 +4,8 @@
 point_t ft_pixeltocoordinate(point_t p)
 {
 		//printf("WIDTH:%d, p.col: %f, p.row: %f, radius: %d\n", WIDTH, p.col, p.row, radius);
-	p.x = (p.col/WIDTH) * (2 * p.radius) - p.radius;
-	p.y = p.radius - (p.row/HEIGHT) * (2 * p.radius);
+	p.Cx = (p.col/WIDTH) * (2 * p.radius) - p.radius + p.movex;
+	p.Cy = p.radius - (p.row/HEIGHT) * (2 * p.radius) + p.movey;
 	return (p);
 }
 
@@ -15,8 +15,8 @@ int ft_mandelbrot(point_t p, int maxiter, mlx_image_t *img)
 	double xbuf;
 	int n;
 	
-	p.Cx = p.x;
-	p.Cy = p.y;
+	p.x = p.Cx;
+	p.y = p.Cy;
 	n = 0;
 	while (n < maxiter && ((p.x * p.x) + (p.y * p.y) <=  4))
 	{

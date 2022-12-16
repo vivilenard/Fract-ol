@@ -18,6 +18,10 @@ typedef struct point_s
 	double	col;
 	double	row;
 	double	radius;
+	double	movex;
+	double	movey;
+	mlx_t	*mlx;
+	mlx_image_t	*img;
 } point_t;
 
 void ft_draw(mlx_image_t *img, point_t p);
