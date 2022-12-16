@@ -39,11 +39,14 @@ void mouse_bindings(void *param)
 	point_t *p;
 	p = (point_t *)param;
 
-	mlx_get_mouse_pos(p->mlx, &p->mousex, &p->mousey);
+	printf("%d\n", p->mousex);
 	if (mlx_is_mouse_down(p->mlx, MLX_MOUSE_BUTTON_LEFT))
 	{
-		p->movex += ft_pixeltocoordinate(p->mousex);
-		p->movey += p->mousey;
+		mlx_get_mouse_pos(p->mlx, &p->mousex, &p->mousey);
+		p->movex = (p->mousex/WIDTH) * (2 * p->radius) - p->radius;
+		printf("%f\n", p->movex);
+		//p->movex += p->movex;
+		//p->movey = (p->radius - (p->mousey/HEIGHT) * (2 * p->radius) + p->movey);
 		ft_draw(p->img, *p);
 	}
 }
