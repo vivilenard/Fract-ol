@@ -22,14 +22,28 @@ void my_scrollhook(double xdelta, double ydelta, void* param)
 	
 	(void) xdelta;
 	p = (point_t *)param;
-	if (ydelta > 0)
+	if (ydelta < 0)
 	{
 		p->radius *= 0.8;
 		ft_draw(p->img, *p);
 	}
-	else if (ydelta < 0)	
+	else if (ydelta > 0)	
 	{
 		p->radius *= 1.2;
+		ft_draw(p->img, *p);
+	}
+}
+
+void mouse_bindings(void *param)
+{
+	point_t *p;
+	p = (point_t *)param;
+
+	mlx_get_mouse_pos(p->mlx, &p->mousex, &p->mousey);
+	if (mlx_is_mouse_down(p->mlx, MLX_MOUSE_BUTTON_LEFT))
+	{
+		p->movex += ft_pixeltocoordinate(p->mousex);
+		p->movey += p->mousey;
 		ft_draw(p->img, *p);
 	}
 }
@@ -39,6 +53,7 @@ void key_bindings(void *param)
 	point_t *p;
 	p = (point_t *)param;
 
+	mouse_bindings(p);
 	if (mlx_is_key_down(p->mlx, MLX_KEY_ESCAPE))
 		ft_exit(p);	
 	if (mlx_is_key_down(p->mlx, MLX_KEY_UP))
@@ -63,13 +78,7 @@ void key_bindings(void *param)
 	}
 }
 
-// void mouse_bindings(void *param)
-// {
-// 	point_t *p;
-// 	p = (point_t *)param;
 
-// 	mlx_get_mouse_pos(p->mlx, p->movex, p->movey);
-// }
 int ft_init()
 {
     mlx_t		*mlx;

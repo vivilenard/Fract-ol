@@ -20,6 +20,8 @@ typedef struct point_s
 	double	radius;
 	double	movex;
 	double	movey;
+	int		mousex;
+	int		mousey;
 	mlx_t	*mlx;
 	mlx_image_t	*img;
 } point_t;
