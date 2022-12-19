@@ -22,6 +22,8 @@ typedef struct point_s
 	double	movey;
 	int		mousex;
 	int		mousey;
+	double	pmousex;
+	double 	pmousey;
 	mlx_t	*mlx;
 	mlx_image_t	*img;
 } point_t;
@@ -29,5 +31,8 @@ typedef struct point_s
 void ft_draw(mlx_image_t *img, point_t p);
 int ft_torgbt(int r, int g, int b, int t);
 void ft_colorme(point_t p, mlx_image_t *img, int n, int maxiter);
+void my_scrollhook(double xdelta, double ydelta, void* param);
+void mouse_bindings(void *param);
+void key_bindings(void *param);
 
 #endif
