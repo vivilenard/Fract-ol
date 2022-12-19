@@ -1,6 +1,6 @@
 #include "fractal.h"
 #include "MLX42/MLX42.h"
-#include <stdio.h>
+
 
 void ft_exit(point_t *p)
 {
