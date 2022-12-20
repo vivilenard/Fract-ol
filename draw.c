@@ -24,7 +24,7 @@ int ft_mandelbrot(point_t p, int maxiter, mlx_image_t *img)
 		p.y = 2 * p.y * xbuf + p.Cy;
 		n++;
 	}
-	ft_colormerainbow(p, img, n, maxiter);
+	ft_colormespacey(p, img, n, maxiter);
 	return (n);
 }
 
@@ -64,7 +64,7 @@ int ft_julia(point_t p, int maxiter, mlx_image_t *img)
 		p.y = 2 * p.y * xbuf + p.Cy;
 		n++;
 	}
-	ft_colormepink(p, img, n, maxiter);
+	ft_colormerainbow(p, img, n, maxiter);
 	return (n);
 }
 void ft_draw(mlx_image_t *img, point_t p)
@@ -72,7 +72,9 @@ void ft_draw(mlx_image_t *img, point_t p)
 	int		maxiter;
 
 	p.row = 0;
-	maxiter = 300;
+	maxiter = 100;
+
+	// ft_bzero(img->pixels, HEIGHT * WIDTH * 4);
 	while (p.row < HEIGHT)
 	{
 		p.col = 0;

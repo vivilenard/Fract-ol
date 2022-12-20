@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include "libft/libft.h"
 
 #define WIDTH 1000
 #define HEIGHT 1000
@@ -23,6 +24,7 @@ typedef struct point_s
 	double	movey;
 	int		mousex;
 	int		mousey;
+	int		z;
 	mlx_t	*mlx;
 	mlx_image_t	*img;
 } point_t;
@@ -44,5 +46,6 @@ void key_bindings(void *param);
 void ft_exit(point_t *p);
 void ft_colormespacey(point_t p, mlx_image_t *img, int n, int maxiter);
 void ft_colormerainbow(point_t p, mlx_image_t *img, int n, int maxiter);
+void ft_colormered(point_t p, mlx_image_t *img, int n, int maxiter);
 
 #endif

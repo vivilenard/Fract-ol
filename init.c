@@ -14,6 +14,7 @@ void ft_initializedata(point_t *p, mlx_t *mlx, mlx_image_t *img)
 	p->img = img;
 	p->movex = 0;
 	p->movey = 0;
+	p->z = 1;
 }
 
 int ft_init()
