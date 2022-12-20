@@ -28,7 +28,7 @@ int ft_mandelbrot(point_t p, int maxiter, mlx_image_t *img)
 	return (n);
 }
 
-int ft_burningship(point_t p, int maxiter, mlx_image_t *img) //mandelbar
+int ft_echse(point_t p, int maxiter, mlx_image_t *img)
 {
 	double xbuf;
 	int n;
@@ -36,19 +36,34 @@ int ft_burningship(point_t p, int maxiter, mlx_image_t *img) //mandelbar
 	p.Cx = p.x;
 	p.Cy = p.y;
 	n = 0;
-	while (n < maxiter && (pow(p.x, 4) + pow(p.y, 4) <=  4))
+	while (n < maxiter && (pow(p.x, 2) + pow(p.y, 2) <=  4))
 	{
 		xbuf = p.x;
-		p.x = pow(xbuf, 1) - pow(p.y, 1) + p.Cx;
-		//p.y = 2 * (4 * p.y * xbuf * xbuf * xbuf) + (6 * xbuf * xbuf * p.y * p.y) + (4 * xbuf * p.y * p.y * p.y) + p.Cy;
-		//p.y = 3 * pow(xbuf, 2) * p.y + 3 * pow(p.y, 2) * xbuf + p.Cy;
-		p.y = xbuf * p.y + p.Cy;
+		p.x = sin(pow(xbuf, 2) - (pow(p.y, 2))) + p.Cx;
+		p.y = sin(2 * xbuf * p.y) + p.Cy;
 		n++;
 	}
-	ft_colormepink(p, img, n, maxiter);
+	ft_colormespacey(p, img, n, maxiter);
 	return (n);
 }
-// int ft_sierpinskitriangle
+int ft_crazybrot(point_t p, int maxiter, mlx_image_t *img)
+{
+	double xbuf;
+	int n;
+	
+	p.Cx = p.x;
+	p.Cy = p.y;
+	n = 0;
+	while (n < maxiter && (pow(p.x, 2) + pow(p.y, 2) <=  4))
+	{
+		xbuf = p.x;
+		p.x = sin(pow(xbuf, 2) - (pow(p.y, 2))) + p.Cx;
+		p.y = (2 * xbuf * p.y) + p.Cy;
+		n++;
+	}
+	ft_colormespacey(p, img, n, maxiter);
+	return (n);
+}
 int ft_julia(point_t p, int maxiter, mlx_image_t *img)
 {
 	double xbuf;
@@ -81,7 +96,7 @@ void ft_draw(mlx_image_t *img, point_t p)
 		while (p.col < WIDTH)
 		{
 			p = ft_pixeltocoordinate(p);
-			ft_mandelbrot(p, maxiter, img);
+			ft_crazybrot(p, maxiter, img);
 			p.col++;
 		}
 		p.row++;
