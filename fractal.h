@@ -27,6 +27,14 @@ typedef struct point_s
 	mlx_image_t	*img;
 } point_t;
 
+typedef struct color_s
+{
+	unsigned int r;
+	unsigned int g;
+	unsigned int b;
+	unsigned int t;
+} color_t;
+
 void ft_draw(mlx_image_t *img, point_t p);
 int ft_torgbt(int r, int g, int b, int t);
 void ft_colormepink(point_t p, mlx_image_t *img, int n, int maxiter);
@@ -34,5 +42,7 @@ void my_scrollhook(double xdelta, double ydelta, void* param);
 void mouse_bindings(void *param);
 void key_bindings(void *param);
 void ft_exit(point_t *p);
+void ft_colormespacey(point_t p, mlx_image_t *img, int n, int maxiter);
+void ft_colormerainbow(point_t p, mlx_image_t *img, int n, int maxiter);
 
 #endif
