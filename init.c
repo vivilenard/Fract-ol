@@ -1,25 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/21 17:57:43 by vlenard           #+#    #+#             */
+/*   Updated: 2022/12/21 18:03:33 by vlenard          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractal.h"
-#include "MLX42/MLX42.h"
-#include "libft/libft.h"
 
-
-void ft_esc(point_t *p)
+void	ft_esc(point_t *p)
 {
 	mlx_terminate(p->mlx);
 	exit(EXIT_SUCCESS);
 }
 
-void ft_options()
+void	ft_options(void)
 {
-	ft_printf("Please type: ./fractol and choose one type of fractal afterwards. \n");
-	ft_printf("Options: Mandelbrot - Crazybrot - Echse - Julia\n");
-	ft_printf("For Julia you also need to choose two starting points: e.g -0.7 0.27015 \n");
+	ft_printf("Please type: ./fractol and choose");
+	ft_printf(" one type of fractal afterwards. \n");
+	ft_printf("Options: Mandelbrot - Crazybrot - Roastedchicken - Julia\n");
+	ft_printf("For Julia you also need to choose two");
+	ft_printf(" starting points: e.g -0.7 0.27015 \n");
 }
 
-point_t ft_initializedata()
+point_t	ft_initializedata(void)
 {
 	mlx_t		*mlx;
-	mlx_image_t *img;
+	mlx_image_t	*img;
 	point_t		p;
 
 	mlx = mlx_init(WIDTH, HEIGHT, "fractals", true);
@@ -37,14 +48,14 @@ point_t ft_initializedata()
 	return (p);
 }
 
-void ft_input(point_t *p, int argc, char **argv)
+void	ft_input(point_t *p, int argc, char **argv)
 {
 	ft_printf("%d\n", ft_strcmp(argv[1], "Mandelbrot"));
 	if (ft_strcmp(argv[1], "Mandelbrot") == 0)
 		p->fractaltype = 1;
 	else if (ft_strcmp(argv[1], "Crazybrot") == 0)
 		p->fractaltype = 2;
-	else if (ft_strcmp(argv[1], "Burnedchicken") == 0)
+	else if (ft_strcmp(argv[1], "Roastedchicken") == 0)
 		p->fractaltype = 3;
 	else if (ft_strcmp(argv[1], "Julia") == 0)
 	{
@@ -59,13 +70,13 @@ void ft_input(point_t *p, int argc, char **argv)
 	}
 }
 
-int main (int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	point_t p;
+	point_t	p;
 
 	p = ft_initializedata();
 	if (argc < 2 || argc > 5)
-		return(ft_options(), 0);
+		return (ft_options(), 0);
 	ft_printf("%d\n", 5);
 	ft_input(&p, argc, argv);
 	ft_printf("%d\n", p.fractaltype);

@@ -6,21 +6,21 @@
 /*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:14:33 by vlenard           #+#    #+#             */
-/*   Updated: 2022/12/21 15:41:45 by vlenard          ###   ########.fr       */
+/*   Updated: 2022/12/21 18:02:46 by vlenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
 
-int ft_mandelbrot(point_t p, mlx_image_t *img)
+int	ft_mandelbrot(point_t p, mlx_image_t *img)
 {
-	double xbuf;
-	int n;
-	
+	double	xbuf;
+	int		n;
+
 	p.Cx = p.x;
 	p.Cy = p.y;
 	n = 0;
-	while (n < p.maxiter && ((p.x * p.x) + (p.y * p.y) <=  4))
+	while (n < p.maxiter && ((p.x * p.x) + (p.y * p.y) <= 4))
 	{
 		xbuf = p.x;
 		p.x = p.x * p.x - p.y * p.y + p.Cx;
@@ -31,15 +31,15 @@ int ft_mandelbrot(point_t p, mlx_image_t *img)
 	return (n);
 }
 
-int ft_crazybrot(point_t p, mlx_image_t *img)
+int	ft_crazybrot(point_t p, mlx_image_t *img)
 {
-	double xbuf;
-	int n;
-	
+	double	xbuf;
+	int		n;
+
 	p.Cx = p.x;
 	p.Cy = p.y;
 	n = 0;
-	while (n < p.maxiter && (pow(p.x, 2) + pow(p.y, 2) <=  4))
+	while (n < p.maxiter && (pow(p.x, 2) + pow(p.y, 2) <= 4))
 	{
 		xbuf = p.x;
 		p.x = sin(pow(xbuf, 2) - (pow(p.y, 2))) + p.Cx;
@@ -50,15 +50,15 @@ int ft_crazybrot(point_t p, mlx_image_t *img)
 	return (n);
 }
 
-int ft_burnedchicken(point_t p, mlx_image_t *img)
+int	ft_roastedchicken(point_t p, mlx_image_t *img)
 {
-	double xbuf;
-	int n;
-	
+	double	xbuf;
+	int		n;
+
 	p.Cx = p.x;
 	p.Cy = p.y;
 	n = 0;
-	while (n < p.maxiter && (pow(p.x, 2) + pow(p.y, 2) <=  4))
+	while (n < p.maxiter && (pow(p.x, 2) + pow(p.y, 2) <= 4))
 	{
 		xbuf = p.x;
 		p.x = sin(pow(xbuf, 2) - (pow(p.y, 2))) + p.Cx;
@@ -68,13 +68,14 @@ int ft_burnedchicken(point_t p, mlx_image_t *img)
 	ft_colormespacey(p, img, n);
 	return (n);
 }
-int ft_julia(point_t p, mlx_image_t *img)
+
+int	ft_julia(point_t p, mlx_image_t *img)
 {
-	double xbuf;
-	int n;
-//cvalues via args
+	double	xbuf;
+	int		n;
+
 	n = 0;
-	while (n < p.maxiter && ((p.x * p.x) + (p.y * p.y) <=  4))
+	while (n < p.maxiter && ((p.x * p.x) + (p.y * p.y) <= 4))
 	{
 		xbuf = p.x;
 		p.x = p.x * p.x - p.y * p.y + p.Cx;
