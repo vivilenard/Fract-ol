@@ -6,7 +6,7 @@
 #    By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/15 15:04:49 by vlenard           #+#    #+#              #
-#    Updated: 2022/12/21 15:19:50 by vlenard          ###   ########.fr        #
+#    Updated: 2022/12/21 18:09:14 by vlenard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,3 +30,4 @@ fclean : clean
 		rm -f ./$(NAME)
 re : fclean
 		$(MAKE) all
+.PHONY: all, n, clean, fclean, re, &(LIBFT)

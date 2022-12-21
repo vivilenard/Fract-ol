@@ -6,7 +6,7 @@
 /*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 17:57:43 by vlenard           #+#    #+#             */
-/*   Updated: 2022/12/21 18:06:20 by vlenard          ###   ########.fr       */
+/*   Updated: 2022/12/21 19:15:16 by vlenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,13 @@ void	ft_options(void)
 	ft_printf(" one type of fractal afterwards. \n");
 	ft_printf("Options: Mandelbrot - Crazybrot - Roastedchicken - Julia\n");
 	ft_printf("For Julia you also need to choose two");
-	ft_printf(" starting points: e.g -0.7 0.27015 \n");
+	ft_printf(" starting points, e.g:\n");
+	ft_printf("-	-0.7	0.27015 \n");
+	ft_printf("-	-0.4	0.6 \n");
+	ft_printf("-	0.45	0.1428\n");
+	ft_printf("-	0	-0.8\n");
+	ft_printf("-	-0.835	-0.2321\n");
+	ft_printf("For example: ./fractol Julia -0.835 -0.2321\n");
 }
 
 point_t	ft_initializedata(void)
@@ -83,4 +89,5 @@ int	main(int argc, char **argv)
 	mlx_loop(p.mlx);
 	mlx_terminate(p.mlx);
 	return (0);
+	system("leaks a.out");
 }
