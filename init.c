@@ -6,7 +6,7 @@
 /*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 17:57:43 by vlenard           #+#    #+#             */
-/*   Updated: 2022/12/21 18:03:33 by vlenard          ###   ########.fr       */
+/*   Updated: 2022/12/21 18:06:20 by vlenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ point_t	ft_initializedata(void)
 
 void	ft_input(point_t *p, int argc, char **argv)
 {
-	ft_printf("%d\n", ft_strcmp(argv[1], "Mandelbrot"));
 	if (ft_strcmp(argv[1], "Mandelbrot") == 0)
 		p->fractaltype = 1;
 	else if (ft_strcmp(argv[1], "Crazybrot") == 0)
@@ -77,9 +76,7 @@ int	main(int argc, char **argv)
 	p = ft_initializedata();
 	if (argc < 2 || argc > 5)
 		return (ft_options(), 0);
-	ft_printf("%d\n", 5);
 	ft_input(&p, argc, argv);
-	ft_printf("%d\n", p.fractaltype);
 	ft_draw(p.img, p);
 	mlx_scroll_hook(p.mlx, &my_scrollhook, &p);
 	mlx_loop_hook(p.mlx, &key_bindings, &p);
