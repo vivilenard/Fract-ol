@@ -1,22 +1,34 @@
-#ifndef FRACTAL_H_
-#define FRACTAL_H_
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractal.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/22 14:04:47 by vlenard           #+#    #+#             */
+/*   Updated: 2022/12/22 14:08:57 by vlenard          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "MLX42/MLX42.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include "libft/libft.h"
+#ifndef FRACTAL_H
+# define FRACTAL_H
 
-#define WIDTH 1000
-#define HEIGHT 1000
-#define COLOR 0xffffffff
+# include "MLX42/MLX42.h"
+# include <stdio.h>
+# include <stdlib.h>
+# include <math.h>
+# include "libft/libft.h"
 
-typedef struct point_s
+# define WIDTH 1000
+# define HEIGHT 1000
+# define COLOR 0xffffffff
+
+typedef struct s_point
 {
 	double		x;
 	double		y;
-	double		Cx;
-	double		Cy;
+	double		cx;
+	double		cy;
 	double		col;
 	double		row;
 	double		radius;
@@ -29,29 +41,21 @@ typedef struct point_s
 	int			maxiter;
 	mlx_t		*mlx;
 	mlx_image_t	*img;
-} point_t;
+}	t_point;
 
-typedef struct color_s
-{
-	unsigned int r;
-	unsigned int g;
-	unsigned int b;
-	unsigned int t;
-} color_t;
-
-void	ft_draw(mlx_image_t *img, point_t p);
+void	ft_draw(mlx_image_t *img, t_point p);
 int		ft_torgbt(int r, int g, int b, int t);
-void	ft_colormepink(point_t p, mlx_image_t *img, int n);
-void	my_scrollhook(double xdelta, double ydelta, void* param);
+void	ft_colormepink(t_point p, mlx_image_t *img, int n);
+void	my_scrollhook(double xdelta, double ydelta, void *param);
 void	mouse_bindings(void *param);
 void	key_bindings(void *param);
-void	ft_esc(point_t *p);
-void	ft_colormespacey(point_t p, mlx_image_t *img, int n);
-void	ft_colormerainbow(point_t p, mlx_image_t *img, int n);
-void	ft_colormered(point_t p, mlx_image_t *img, int n);
-int		ft_mandelbrot(point_t p, mlx_image_t *img);
-int		ft_crazybrot(point_t p, mlx_image_t *img);
-int		ft_roastedchicken(point_t p, mlx_image_t *img);
-int		ft_julia(point_t p, mlx_image_t *img);
+void	ft_esc(t_point *p);
+void	ft_colormespacey(t_point p, mlx_image_t *img, int n);
+void	ft_colormerainbow(t_point p, mlx_image_t *img, int n);
+void	ft_colormered(t_point p, mlx_image_t *img, int n);
+int		ft_mandelbrot(t_point p, mlx_image_t *img);
+int		ft_crazybrot(t_point p, mlx_image_t *img);
+int		ft_roastedchicken(t_point p, mlx_image_t *img);
+int		ft_julia(t_point p, mlx_image_t *img);
 
 #endif

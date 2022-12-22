@@ -6,70 +6,70 @@
 /*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:14:33 by vlenard           #+#    #+#             */
-/*   Updated: 2022/12/21 18:21:06 by vlenard          ###   ########.fr       */
+/*   Updated: 2022/12/22 14:12:07 by vlenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
 
-int	ft_mandelbrot(point_t p, mlx_image_t *img)
+int	ft_mandelbrot(t_point p, mlx_image_t *img)
 {
 	double	xbuf;
 	int		n;
 
-	p.Cx = p.x;
-	p.Cy = p.y;
+	p.cx = p.x;
+	p.cy = p.y;
 	n = 0;
 	while (n < p.maxiter && ((p.x * p.x) + (p.y * p.y) <= 4))
 	{
 		xbuf = p.x;
-		p.x = p.x * p.x - p.y * p.y + p.Cx;
-		p.y = 2 * p.y * xbuf + p.Cy;
+		p.x = p.x * p.x - p.y * p.y + p.cx;
+		p.y = 2 * p.y * xbuf + p.cy;
 		n++;
 	}
 	ft_colormered(p, img, n);
 	return (n);
 }
 
-int	ft_crazybrot(point_t p, mlx_image_t *img)
+int	ft_crazybrot(t_point p, mlx_image_t *img)
 {
 	double	xbuf;
 	int		n;
 
-	p.Cx = p.x;
-	p.Cy = p.y;
+	p.cx = p.x;
+	p.cy = p.y;
 	n = 0;
 	while (n < p.maxiter && (pow(p.x, 2) + pow(p.y, 2) <= 4))
 	{
 		xbuf = p.x;
-		p.x = sin(pow(xbuf, 2) - (pow(p.y, 2))) + p.Cx;
-		p.y = (2 * xbuf * p.y) + p.Cy;
+		p.x = sin(pow(xbuf, 2) - (pow(p.y, 2))) + p.cx;
+		p.y = (2 * xbuf * p.y) + p.cy;
 		n++;
 	}
 	ft_colormespacey(p, img, n);
 	return (n);
 }
 
-int	ft_roastedchicken(point_t p, mlx_image_t *img)
+int	ft_roastedchicken(t_point p, mlx_image_t *img)
 {
 	double	xbuf;
 	int		n;
 
-	p.Cx = p.x;
-	p.Cy = p.y;
+	p.cx = p.x;
+	p.cy = p.y;
 	n = 0;
 	while (n < p.maxiter && (pow(p.x, 2) + pow(p.y, 2) <= 4))
 	{
 		xbuf = p.x;
-		p.x = sin(pow(xbuf, 2) - (pow(p.y, 2))) + p.Cx;
-		p.y = sin(2 * xbuf * p.y) + p.Cy;
+		p.x = sin(pow(xbuf, 2) - (pow(p.y, 2))) + p.cx;
+		p.y = sin(2 * xbuf * p.y) + p.cy;
 		n++;
 	}
 	ft_colormespacey(p, img, n);
 	return (n);
 }
 
-int	ft_julia(point_t p, mlx_image_t *img)
+int	ft_julia(t_point p, mlx_image_t *img)
 {
 	double	xbuf;
 	int		n;
@@ -78,8 +78,8 @@ int	ft_julia(point_t p, mlx_image_t *img)
 	while (n < p.maxiter && ((p.x * p.x) + (p.y * p.y) <= 4))
 	{
 		xbuf = p.x;
-		p.x = p.x * p.x - p.y * p.y + p.Cx;
-		p.y = 2 * p.y * xbuf + p.Cy;
+		p.x = p.x * p.x - p.y * p.y + p.cx;
+		p.y = 2 * p.y * xbuf + p.cy;
 		n++;
 	}
 	ft_colormerainbow(p, img, n);

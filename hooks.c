@@ -6,7 +6,7 @@
 /*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 15:56:08 by vlenard           #+#    #+#             */
-/*   Updated: 2022/12/21 17:57:04 by vlenard          ###   ########.fr       */
+/*   Updated: 2022/12/22 14:12:22 by vlenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	my_scrollhook(double xdelta, double ydelta, void *param)
 {
-	point_t	*p;
+	t_point	*p;
 
 	(void) xdelta;
-	p = (point_t *)param;
+	p = (t_point *)param;
 	if (ydelta < 0)
 	{
 		p->radius *= 0.8;
@@ -42,9 +42,9 @@ void	my_scrollhook(double xdelta, double ydelta, void *param)
 
 void	mouse_bindings(void *param)
 {
-	point_t	*p;
+	t_point	*p;
 
-	p = (point_t *)param;
+	p = (t_point *)param;
 	if (mlx_is_mouse_down(p->mlx, MLX_MOUSE_BUTTON_LEFT))
 	{
 		mlx_get_mouse_pos(p->mlx, &p->mousex, &p->mousey);
@@ -58,9 +58,9 @@ void	mouse_bindings(void *param)
 
 void	key_bindingsmove(void *param)
 {
-	point_t	*p;
+	t_point	*p;
 
-	p = (point_t *)param;
+	p = (t_point *)param;
 	if (mlx_is_key_down(p->mlx, MLX_KEY_UP))
 	{
 		p->movey += (p->radius * 0.1);
@@ -85,9 +85,9 @@ void	key_bindingsmove(void *param)
 
 void	key_bindings(void *param)
 {
-	point_t	*p;
+	t_point	*p;
 
-	p = (point_t *)param;
+	p = (t_point *)param;
 	mouse_bindings(p);
 	key_bindingsmove(p);
 	if (mlx_is_key_down(p->mlx, MLX_KEY_ESCAPE))

@@ -6,20 +6,20 @@
 /*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 17:41:00 by vlenard           #+#    #+#             */
-/*   Updated: 2022/12/21 18:02:57 by vlenard          ###   ########.fr       */
+/*   Updated: 2022/12/22 14:12:45 by vlenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
 
-point_t	ft_pixeltocoordinate(point_t p)
+t_point	ft_pixeltocoordinate(t_point p)
 {
 	p.x = (p.col / WIDTH) * (2 * p.radius) - p.radius + p.movex;
 	p.y = p.radius - (p.row / HEIGHT) * (2 * p.radius) + p.movey;
 	return (p);
 }
 
-void	ft_draw(mlx_image_t *img, point_t p)
+void	ft_draw(mlx_image_t *img, t_point p)
 {
 	p.row = 0;
 	while (p.row < HEIGHT)

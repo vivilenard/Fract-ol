@@ -6,7 +6,7 @@
 /*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 15:43:24 by vlenard           #+#    #+#             */
-/*   Updated: 2022/12/21 17:40:00 by vlenard          ###   ########.fr       */
+/*   Updated: 2022/12/22 14:12:56 by vlenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_torgbt(int r, int g, int b, int t)
 	return (color);
 }
 
-void	ft_colormepink(point_t p, mlx_image_t *img, int n)
+void	ft_colormepink(t_point p, mlx_image_t *img, int n)
 {
 	if (n == p.maxiter)
 		mlx_put_pixel(img, p.col, p.row, 255);
@@ -28,7 +28,7 @@ void	ft_colormepink(point_t p, mlx_image_t *img, int n)
 		mlx_put_pixel(img, p.col, p.row, ft_torgbt(200, 30, 100, n + 20));
 }
 
-void	ft_colormespacey(point_t p, mlx_image_t *img, int n)
+void	ft_colormespacey(t_point p, mlx_image_t *img, int n)
 {
 	if (n == p.maxiter)
 		mlx_put_pixel(img, p.col, p.row, 255);
@@ -49,7 +49,7 @@ void	ft_colormespacey(point_t p, mlx_image_t *img, int n)
 			ft_torgbt(n * n * p.z, n * 2, 50, 150 - n * n));
 }
 
-void	ft_colormered(point_t p, mlx_image_t *img, int n)
+void	ft_colormered(t_point p, mlx_image_t *img, int n)
 {
 	if (n == p.maxiter)
 		mlx_put_pixel(img, p.col, p.row, 255);
@@ -70,7 +70,7 @@ void	ft_colormered(point_t p, mlx_image_t *img, int n)
 			ft_torgbt(250 - n * 8, 25, 70 + n * 2 * p.z, 150 - n * n * p.z));
 }
 
-void	ft_colormerainbow(point_t p, mlx_image_t *img, int n)
+void	ft_colormerainbow(t_point p, mlx_image_t *img, int n)
 {
 	if (n == p.maxiter)
 		mlx_put_pixel(img, p.col, p.row, 255);

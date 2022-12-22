@@ -6,13 +6,13 @@
 /*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 17:57:43 by vlenard           #+#    #+#             */
-/*   Updated: 2022/12/22 12:44:41 by vlenard          ###   ########.fr       */
+/*   Updated: 2022/12/22 14:13:17 by vlenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
 
-void	ft_esc(point_t *p)
+void	ft_esc(t_point *p)
 {
 	mlx_terminate(p->mlx);
 	exit(EXIT_SUCCESS);
@@ -33,11 +33,11 @@ void	ft_options(void)
 	ft_printf("For example: ./fractol Julia -0.835 -0.2321\n");
 }
 
-point_t	ft_initializedata(void)
+t_point	ft_initializedata(void)
 {
 	mlx_t		*mlx;
 	mlx_image_t	*img;
-	point_t		p;
+	t_point		p;
 
 	mlx = mlx_init(WIDTH, HEIGHT, "fractals", true);
 	img = mlx_new_image(mlx, WIDTH, HEIGHT);
@@ -54,7 +54,7 @@ point_t	ft_initializedata(void)
 	return (p);
 }
 
-void	ft_input(point_t *p, int argc, char **argv)
+void	ft_input(t_point *p, int argc, char **argv)
 {
 	if (ft_strcmp(argv[1], "Mandelbrot") == 0)
 		p->fractaltype = 1;
@@ -71,14 +71,14 @@ void	ft_input(point_t *p, int argc, char **argv)
 			exit(EXIT_FAILURE);
 		}
 		p->fractaltype = 4;
-		p->Cx = ft_atodouble(argv[2]);
-		p->Cy = ft_atodouble(argv[3]);
+		p->cx = ft_atodouble(argv[2]);
+		p->cy = ft_atodouble(argv[3]);
 	}
 }
 
 int	main(int argc, char **argv)
 {
-	point_t	p;
+	t_point	p;
 
 	p = ft_initializedata();
 	if (argc < 2 || argc > 5)
