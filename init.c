@@ -6,7 +6,7 @@
 /*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 17:57:43 by vlenard           #+#    #+#             */
-/*   Updated: 2022/12/21 19:15:16 by vlenard          ###   ########.fr       */
+/*   Updated: 2022/12/22 12:44:41 by vlenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ void	ft_input(point_t *p, int argc, char **argv)
 		if (argc != 4)
 		{
 			ft_options();
-			exit(0);
+			mlx_terminate(p->mlx);
+			exit(EXIT_FAILURE);
 		}
 		p->fractaltype = 4;
 		p->Cx = ft_atodouble(argv[2]);
@@ -89,5 +90,4 @@ int	main(int argc, char **argv)
 	mlx_loop(p.mlx);
 	mlx_terminate(p.mlx);
 	return (0);
-	system("leaks a.out");
 }

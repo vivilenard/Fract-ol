@@ -6,7 +6,7 @@
 #    By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/15 15:04:49 by vlenard           #+#    #+#              #
-#    Updated: 2022/12/21 18:09:14 by vlenard          ###   ########.fr        #
+#    Updated: 2022/12/22 12:40:33 by vlenard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ SRC = init.c draw.c colors.c hooks.c fractals.c
 OBJS = $(SRC:.c=.o)
 NAME = fractol
 
-all: $(LIBFT) $(OBJS)
+all: $(NAME)
+$(NAME): $(LIBFT) $(OBJS)
 		$(CC) $(OBJS) $(LIBFT) $(MLX) -o $(NAME)
 $(LIBFT): 
 		cd libft && make && make clean
@@ -29,5 +30,5 @@ clean :
 fclean : clean
 		rm -f ./$(NAME)
 re : fclean
-		$(MAKE) all
-.PHONY: all, n, clean, fclean, re, &(LIBFT)
+		$(MAKE)
+.PHONY: all, n, clean, fclean, re, $(LIBFT), $(NAME)
