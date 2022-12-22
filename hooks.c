@@ -6,7 +6,7 @@
 /*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 15:56:08 by vlenard           #+#    #+#             */
-/*   Updated: 2022/12/22 14:12:22 by vlenard          ###   ########.fr       */
+/*   Updated: 2022/12/22 14:49:19 by vlenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,10 @@ void	key_bindings(void *param)
 	mouse_bindings(p);
 	key_bindingsmove(p);
 	if (mlx_is_key_down(p->mlx, MLX_KEY_ESCAPE))
-		ft_esc(p);
+	{
+		mlx_terminate(p->mlx);
+		exit(EXIT_SUCCESS);
+	}
 	if (mlx_is_key_down(p->mlx, MLX_KEY_1))
 	{
 		p->z -= 230;

@@ -6,17 +6,11 @@
 /*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 17:57:43 by vlenard           #+#    #+#             */
-/*   Updated: 2022/12/22 14:13:17 by vlenard          ###   ########.fr       */
+/*   Updated: 2022/12/22 14:58:15 by vlenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
-
-void	ft_esc(t_point *p)
-{
-	mlx_terminate(p->mlx);
-	exit(EXIT_SUCCESS);
-}
 
 void	ft_options(void)
 {
@@ -54,17 +48,39 @@ t_point	ft_initializedata(void)
 	return (p);
 }
 
+int	ft_wrongarguments(char **argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[2][i])
+	{
+		if (argv[2][i] != '.' && ft_isdigit(argv[2][i])
+			== 0 && argv[2][i] != '-')
+			return (0);
+		i++;
+	}
+	while (argv[2][i])
+	{
+		if (argv[3][i] != '.' && ft_isdigit(argv[3][i])
+			== 0 && argv[2][i] != '-')
+			return (0);
+			i++;
+	}
+	return (1);
+}
+
 void	ft_input(t_point *p, int argc, char **argv)
 {
-	if (ft_strcmp(argv[1], "Mandelbrot") == 0)
+	if (ft_strcmp(argv[1], "Mandelbrot") == 0 && argc == 2)
 		p->fractaltype = 1;
-	else if (ft_strcmp(argv[1], "Crazybrot") == 0)
+	else if (ft_strcmp(argv[1], "Crazybrot") == 0 && argc == 2)
 		p->fractaltype = 2;
-	else if (ft_strcmp(argv[1], "Roastedchicken") == 0)
+	else if (ft_strcmp(argv[1], "Roastedchicken") == 0 && argc == 2)
 		p->fractaltype = 3;
-	else if (ft_strcmp(argv[1], "Julia") == 0)
+	else if (ft_strcmp(argv[1], "Julia") == 0 && argc == 4)
 	{
-		if (argc != 4)
+		if (ft_wrongarguments(argv) == 0)
 		{
 			ft_options();
 			mlx_terminate(p->mlx);
@@ -73,6 +89,12 @@ void	ft_input(t_point *p, int argc, char **argv)
 		p->fractaltype = 4;
 		p->cx = ft_atodouble(argv[2]);
 		p->cy = ft_atodouble(argv[3]);
+	}
+	else
+	{
+		ft_options();
+		mlx_terminate(p->mlx);
+		exit(EXIT_FAILURE);
 	}
 }
 
