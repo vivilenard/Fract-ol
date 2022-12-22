@@ -6,7 +6,7 @@
 /*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 15:43:24 by vlenard           #+#    #+#             */
-/*   Updated: 2022/12/22 14:12:56 by vlenard          ###   ########.fr       */
+/*   Updated: 2022/12/22 19:48:45 by vlenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,8 @@ void	ft_colormerainbow(t_point p, mlx_image_t *img, int n)
 	else if (n > 0.075 * p.maxiter)
 		mlx_put_pixel(img, p.col, p.row,
 			ft_torgbt(140 * p.z, 0, 140 * p.z, 255));
-	else if (n == 0)
-		mlx_put_pixel(img, p.col, p.row, ft_torgbt(210 * p.z, 105, 0, 255));
 	else
 		mlx_put_pixel(img, p.col, p.row,
-			ft_torgbt(250 - p.z, 140 - (double)p.maxiter
-				/ n * 20 * p.z, 0 + (double)p.maxiter / n, 250 + p.z));
+			ft_torgbt(0 + n * n, 140 + n * n, 150
+				- n * 2 + p.z, 150 - n * n + p.z));
 }

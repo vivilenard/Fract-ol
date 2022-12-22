@@ -6,7 +6,7 @@
 /*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 15:56:08 by vlenard           #+#    #+#             */
-/*   Updated: 2022/12/22 14:49:19 by vlenard          ###   ########.fr       */
+/*   Updated: 2022/12/22 19:43:25 by vlenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,12 +97,12 @@ void	key_bindings(void *param)
 	}
 	if (mlx_is_key_down(p->mlx, MLX_KEY_1))
 	{
-		p->z -= 230;
+		p->z -= 3;
 		ft_draw(p->img, *p);
 	}
 	if (mlx_is_key_down(p->mlx, MLX_KEY_2))
 	{
-		p->z += 230;
+		p->z += 3;
 		ft_draw(p->img, *p);
 	}
 }

@@ -6,7 +6,7 @@
 #    By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/15 15:04:49 by vlenard           #+#    #+#              #
-#    Updated: 2022/12/22 12:40:33 by vlenard          ###   ########.fr        #
+#    Updated: 2022/12/22 19:36:04 by vlenard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,19 @@ $(NAME): $(LIBFT) $(OBJS)
 $(LIBFT): 
 		cd libft && make && make clean
 n:
-		norminette $(SRC)
+		norminette $(SRC) fractal.h
+1: all	
+		./fractol Julia 0.28 0.008
+2: all
+		./fractol Julia -0.4 0.6
+3: all
+		./fractol Julia 0.45 0.1428
+4: all
+		./fractol Julia -0.79 -0.15
+5: all	
+		./fractol Julia -0.162 1.04
+6: all	
+		./fractol Julia -1.476 0
 clean :
 		rm -f $(OBJS)
 fclean : clean
