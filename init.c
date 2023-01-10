@@ -6,7 +6,7 @@
 /*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 17:57:43 by vlenard           #+#    #+#             */
-/*   Updated: 2022/12/22 19:52:23 by vlenard          ###   ########.fr       */
+/*   Updated: 2023/01/10 13:56:17 by vlenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,17 +55,20 @@ int	ft_wrongarguments(char **argv)
 	i = 0;
 	while (argv[2][i])
 	{
-		if (argv[2][i] != '.' && ft_isdigit(argv[2][i])
-			== 0 && argv[2][i] != '-')
+		while (argv[2][i] == '+' || argv[2][i] == '-' || argv[2][i] == '.')
+			i++;
+		if (ft_isdigit(argv[2][i]) == 0)
 			return (0);
 		i++;
 	}
-	while (argv[2][i])
+	i = 0;
+	while (argv[3][i])
 	{
-		if (argv[3][i] != '.' && ft_isdigit(argv[3][i])
-			== 0 && argv[2][i] != '-')
-			return (0);
+		while (argv[3][i] == '+' || argv[3][i] == '-' || argv[3][i] == '.')
 			i++;
+		if (ft_isdigit(argv[3][i]) == 0)
+			return (0);
+		i++;
 	}
 	return (1);
 }
