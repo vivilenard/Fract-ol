@@ -6,7 +6,7 @@
 /*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:22:03 by vlenard           #+#    #+#             */
-/*   Updated: 2023/01/10 13:46:23 by vlenard          ###   ########.fr       */
+/*   Updated: 2023/01/10 15:32:48 by vlenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,17 @@
 char	*ft_punktraus(char *str)
 {
 	char	**s;
+	int		i;
 
+	i = 0;
 	s = ft_split(str, '.');
 	str = ft_strjoin(s[0], s[1]);
-	return (str);
+	while (s[i])
+	{
+		free(s[i]);
+		i++;
+	}
+	return (free(s), str);
 }
 
 int	ft_findletter(char *str, char letter)
@@ -49,7 +56,7 @@ double	ft_createdouble(char *str, int s, int strlen)
 	res = res * s;
 	while (strlen >= 1 && strlen-- != 1)
 		res = res / 10;
-	return (res);
+	return (free(str), res);
 }
 
 double	ft_atodouble(char *str)

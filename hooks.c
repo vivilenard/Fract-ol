@@ -6,7 +6,7 @@
 /*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 15:56:08 by vlenard           #+#    #+#             */
-/*   Updated: 2022/12/22 19:43:25 by vlenard          ###   ########.fr       */
+/*   Updated: 2023/01/10 15:35:03 by vlenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ void	key_bindings(void *param)
 	key_bindingsmove(p);
 	if (mlx_is_key_down(p->mlx, MLX_KEY_ESCAPE))
 	{
+		system("leaks fractol");
 		mlx_terminate(p->mlx);
 		exit(EXIT_SUCCESS);
 	}
