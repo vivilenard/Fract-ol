@@ -6,7 +6,7 @@
 #    By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/15 15:04:49 by vlenard           #+#    #+#              #
-#    Updated: 2022/12/22 19:36:04 by vlenard          ###   ########.fr        #
+#    Updated: 2023/01/10 16:16:40 by vlenard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,12 @@ OBJS = $(SRC:.c=.o)
 NAME = fractol
 
 all: $(NAME)
-$(NAME): $(LIBFT) $(OBJS)
+$(NAME): relibft $(LIBFT) $(OBJS)
 		$(CC) $(OBJS) $(LIBFT) $(MLX) -o $(NAME)
 $(LIBFT): 
 		cd libft && make && make clean
+relibft:
+		cd libft && make re && make clean
 n:
 		norminette $(SRC) fractal.h
 1: all	

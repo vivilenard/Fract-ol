@@ -6,11 +6,12 @@
 /*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:22:03 by vlenard           #+#    #+#             */
-/*   Updated: 2023/01/10 15:32:48 by vlenard          ###   ########.fr       */
+/*   Updated: 2023/01/10 16:30:09 by vlenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 char	*ft_punktraus(char *str)
 {
@@ -56,7 +57,7 @@ double	ft_createdouble(char *str, int s, int strlen)
 	res = res * s;
 	while (strlen >= 1 && strlen-- != 1)
 		res = res / 10;
-	return (free(str), res);
+	return (res);
 }
 
 double	ft_atodouble(char *str)
@@ -64,6 +65,7 @@ double	ft_atodouble(char *str)
 	int		i;
 	int		s;
 	int		strlen;
+	double	res;
 
 	i = 0;
 	s = 1;
@@ -81,5 +83,8 @@ double	ft_atodouble(char *str)
 		str = ft_punktraus(str + i);
 		strlen = ft_strlen(str);
 	}
-	return (ft_createdouble(str, s, strlen));
+	res = ft_createdouble(str, s, strlen);
+	if (strlen != 0)
+		free (str);
+	return (res);
 }
