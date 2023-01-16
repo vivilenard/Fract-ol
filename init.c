@@ -6,11 +6,18 @@
 /*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 17:57:43 by vlenard           #+#    #+#             */
-/*   Updated: 2023/01/10 15:34:14 by vlenard          ###   ########.fr       */
+/*   Updated: 2023/01/16 14:48:02 by vlenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
+
+void	ft_quit(t_point *p)
+{
+	ft_options();
+	mlx_terminate(p->mlx);
+	exit (EXIT_FAILURE);
+}
 
 void	ft_options(void)
 {
@@ -84,35 +91,14 @@ void	ft_input(t_point *p, int argc, char **argv)
 	else if (ft_strcmp(argv[1], "Julia") == 0 && argc == 4)
 	{
 		if (ft_wrongarguments(argv) == 0)
-		{
-			ft_options();
-			mlx_terminate(p->mlx);
-			exit(EXIT_FAILURE);
-		}
+			ft_quit(p);
 		p->fractaltype = 4;
 		p->cx = ft_atodouble(argv[2]);
 		p->cy = ft_atodouble(argv[3]);
+		if (p->cx > 2147483647 || p->cy > 2147483647
+			|| p->cx < -2147483648 || p->cy < -2147483648)
+			ft_quit(p);
 	}
 	else
-	{
-		ft_options();
-		mlx_terminate(p->mlx);
-		exit(EXIT_FAILURE);
-	}
-}
-
-int	main(int argc, char **argv)
-{
-	t_point	p;
-
-	p = ft_initializedata();
-	if (argc < 2 || argc > 5)
-		return (ft_options(), 0);
-	ft_input(&p, argc, argv);
-	ft_draw(p.img, p);
-	mlx_scroll_hook(p.mlx, &my_scrollhook, &p);
-	mlx_loop_hook(p.mlx, &key_bindings, &p);
-	mlx_loop(p.mlx);
-	mlx_terminate(p.mlx);
-	return (0);
+		ft_quit(p);
 }

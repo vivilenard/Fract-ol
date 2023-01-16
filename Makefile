@@ -6,7 +6,7 @@
 #    By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/15 15:04:49 by vlenard           #+#    #+#              #
-#    Updated: 2023/01/10 16:16:40 by vlenard          ###   ########.fr        #
+#    Updated: 2023/01/16 14:32:40 by vlenard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = cc
 CFLAGS = -Wall -Werror -Wextra
 LIBFT = libft/libft.a
 MLX = MLX42/libmlx42.a -I include -lglfw -L "/Users/vlenard/.brew/opt/glfw/lib/"
-SRC = init.c draw.c colors.c hooks.c fractals.c
+SRC = main.c init.c draw.c colors.c hooks.c fractals.c
 OBJS = $(SRC:.c=.o)
 NAME = fractol
 

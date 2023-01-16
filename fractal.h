@@ -6,7 +6,7 @@
 /*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 14:04:47 by vlenard           #+#    #+#             */
-/*   Updated: 2022/12/22 14:08:57 by vlenard          ###   ########.fr       */
+/*   Updated: 2023/01/16 14:32:22 by vlenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ typedef struct s_point
 	mlx_image_t	*img;
 }	t_point;
 
+void	ft_input(t_point *p, int argc, char **argv);
+int		ft_wrongarguments(char **argv);
+t_point	ft_initializedata(void);
+void	ft_options(void);
 void	ft_draw(mlx_image_t *img, t_point p);
 int		ft_torgbt(int r, int g, int b, int t);
 void	ft_colormepink(t_point p, mlx_image_t *img, int n);
