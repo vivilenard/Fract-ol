@@ -18,7 +18,7 @@ SRC = main.c init.c draw.c colors.c hooks.c fractals.c
 OBJS = $(SRC:.c=.o)
 NAME = fractol
 
-all: $(NAME)
+all: build $(NAME)
 $(NAME): relibft $(LIBFT) $(OBJS)
 		$(CC) $(OBJS) $(LIBFT) $(MLX) -o $(NAME)
 $(LIBFT): 
