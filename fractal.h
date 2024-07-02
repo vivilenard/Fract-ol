@@ -13,7 +13,7 @@
 #ifndef FRACTAL_H
 # define FRACTAL_H
 
-# include "MLX42/MLX42.h"
+# include "MLX42/include/MLX42/MLX42.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>

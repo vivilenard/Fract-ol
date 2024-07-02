@@ -13,7 +13,7 @@
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
 LIBFT = libft/libft.a
-MLX = MLX42/libmlx42.a -I include -lglfw -L "/Users/vlenard/.brew/opt/glfw/lib/"
+MLX = MLX42/build/libmlx42.a -I include -lglfw -L "/opt/homebrew/Cellar/glfw/3.4/lib"
 SRC = main.c init.c draw.c colors.c hooks.c fractals.c
 OBJS = $(SRC:.c=.o)
 NAME = fractol
@@ -45,4 +45,7 @@ fclean : clean
 		rm -f ./$(NAME)
 re : fclean
 		$(MAKE)
+build:
+	@git submodule update --init
+	@cd MLX42 && cmake $(if $(DEBUG),-DDEBUG=1, ) -B build && cmake --build build -j4
 .PHONY: all, n, clean, fclean, re, $(LIBFT), $(NAME)

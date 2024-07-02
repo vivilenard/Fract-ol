@@ -103,12 +103,10 @@ char	**ft_split(char const *s, char c)
 {
 	char	**split;
 	char	*strbuff;
-	int		n;
 	int		i;
 	int		strcount;
 
 	i = 0;
-	n = 0;
 	if (c != '\0' && !s)
 		return (NULL);
 	strcount = ft_countstrs((char *)s, c);
